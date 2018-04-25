@@ -7,7 +7,9 @@ class AuthForm extends Component {
     this.state = {
       email: "",
       username: "",
-      password: ""
+      password: "",
+      firstName: "",
+      lastName: ""
     };
   }
 
@@ -20,6 +22,7 @@ class AuthForm extends Component {
         this.props.history.push("/");
       })
       .catch(() => {
+        // we failed to log in, display the error message
         return;
       });
   };
@@ -29,7 +32,7 @@ class AuthForm extends Component {
   };
 
   render() {
-    const { email, username, password } = this.state;
+    const { email, username, password, firstName, lastName } = this.state;
     const {
       signIn,
       heading,
@@ -48,14 +51,13 @@ class AuthForm extends Component {
           <h2>{heading}</h2>
           {errors.message && <div>{errors.message}</div>}
           <div>
-            <label htmlFor="email">E-mail</label>
+            <label htmlFor="username">Username</label>
             <input
-              autoComplete="off"
-              id="email"
-              name="email"
+              id="username"
+              name="username"
               onChange={this.handleChange}
               type="text"
-              value={email}
+              value={username}
             />
           </div>
           <div>
@@ -70,14 +72,37 @@ class AuthForm extends Component {
           </div>
           {!signIn && (
             <div>
-              <label htmlFor="username">Username</label>
-              <input
-                id="username"
-                name="username"
-                onChange={this.handleChange}
-                type="text"
-                value={username}
-              />
+              <div>
+                <label htmlFor="email">E-mail</label>
+                <input
+                  autoComplete="off"
+                  id="email"
+                  name="email"
+                  onChange={this.handleChange}
+                  type="text"
+                  value={email}
+                />
+              </div>
+              <div>
+                <label htmlFor="firstName">First Name</label>
+                <input
+                  id="firstName"
+                  name="firstName"
+                  onChange={this.handleChange}
+                  type="text"
+                  value={firstName}
+                />
+              </div>
+              <div>
+                <label htmlFor="lastName">Last Name</label>
+                <input
+                  id="lastName"
+                  name="lastName"
+                  onChange={this.handleChange}
+                  type="text"
+                  value={lastName}
+                />
+              </div>
             </div>
           )}
           <button type="submit">{buttonText}</button>

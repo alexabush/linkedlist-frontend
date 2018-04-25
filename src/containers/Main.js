@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Switch, Route, withRouter, Redirect } from "react-router-dom";
 import { removeError } from "../store/actions/errors";
-import { authUser } from "../store/actions/auth";
+import { authUser, loginUser } from "../store/actions/auth";
 import Homepage from "../components/Homepage";
 import AuthForm from "../components/AuthForm";
 import withAuth from "../hocs/withAuth";
 
 const Main = props => {
-  const { authUser, currentUser, errors, removeError } = props;
+  const { authUser, currentUser, errors, removeError, loginUser } = props;
   return (
     <div className="container">
       <Switch>
@@ -26,7 +26,7 @@ const Main = props => {
                 errors={errors}
                 removeError={removeError}
                 heading="Welcome Back."
-                onAuth={authUser}
+                onAuth={loginUser}
                 signIn
                 {...props}
               />
@@ -77,11 +77,12 @@ Main.propTypes = {
   signIn: PropTypes.func,
   signUp: PropTypes.func,
   authUser: PropTypes.func,
+  loginUser: PropTypes.func,
   currentUser: PropTypes.object,
   removeError: PropTypes.func,
   errors: PropTypes.object
 };
 
 export default withRouter(
-  connect(mapStateToProps, { authUser, removeError })(Main)
+  connect(mapStateToProps, { loginUser, authUser, removeError })(Main)
 );

@@ -1,6 +1,6 @@
-import { apiCall, setTokenHeader } from "../../services/api";
-import { addError, removeError } from "./errors";
-import { SET_CURRENT_USER } from "../actionTypes";
+import { apiCall, setTokenHeader } from '../../services/api';
+import { addError, removeError } from './errors';
+import { SET_CURRENT_USER } from '../actionTypes';
 
 export function setAuthorizationToken(token) {
   setTokenHeader(token);
@@ -10,27 +10,46 @@ export function setAuthorizationToken(token) {
  * @param {string} type signin or signup user
  * @param {object} userData JSON object from form
  */
-export function authUser(type, userData) {
-  return dispatch => {
-    // wrap our thunk in a promise so we can wait for the API call
-    return new Promise((resolve, reject) => {
-      return apiCall("post", `/api/auth/${type}`, userData)
-        .then(({ token, ...user }) => {
-          // once we have logged in, set a token in localStorage
-          localStorage.setItem("jwtToken", token);
-          // set a header of Authorization
-          setAuthorizationToken(token);
-          // set a currentUser in Redux
-          dispatch(setCurrentUser(user));
-          // remove any error messages
-          dispatch(removeError());
-          resolve(); // indicate that the API call succeeded
-        })
-        .catch(err => {
-          dispatch(addError(err.message));
-          reject(); // indicate the API call failed
-        });
-    });
+
+//thunk time
+export function authUser(type, data) {
+  return async dispatch => {
+    try {
+      let newUser = await apiCall('post', `/users`, { data });
+      let authData = await apiCall('post', `/user-auth`, { data });
+      // once we have logged in, set a token in localStorage
+      localStorage.setItem('jwtToken', authData.data.token);
+      // set a header of Authorization
+      setAuthorizationToken(authData.data.token);
+      // set a currentUser in Redux
+      dispatch(setCurrentUser({ username: newUser.username }));
+      // remove any error messages
+      dispatch(removeError());
+      return;
+    } catch (err) {
+      dispatch(addError(err.message));
+      return Promise.reject(err); // indicate the API call failed
+    }
+  };
+}
+
+export function loginUser(type, data) {
+  return async dispatch => {
+    try {
+      let authData = await apiCall('post', `/user-auth`, { data });
+      // once we have logged in, set a token in localStorage
+      localStorage.setItem('jwtToken', authData.data.token);
+      // set a header of Authorization
+      setAuthorizationToken(authData.data.token);
+      // set a currentUser in Redux
+      dispatch(setCurrentUser({ username: data.username }));
+      // remove any error messages
+      dispatch(removeError());
+      return;
+    } catch (err) {
+      dispatch(addError(err.message));
+      return Promise.reject(err); // indicate the API call failed
+    }
   };
 }
 

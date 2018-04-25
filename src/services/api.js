@@ -35,14 +35,12 @@ allows us to pass in our method, our url, and whatever additional data we may ne
 
 gives back a friendlier positive response and a friendlier error message
 */
-export function apiCall(method, path, data) {
-  return new Promise((resolve, reject) => {
-    return axios[method](path, data)
-      .then(res => {
-        return resolve(res.data);
-      })
-      .catch(err => {
-        return reject(err.response.data.error);
-      });
-  });
+
+export async function apiCall(method, path, data) {
+  try {
+    let res = await axios[method](path, data);
+    return res.data;
+  } catch (err) {
+    return Promise.reject(err.response.data.error);
+  }
 }

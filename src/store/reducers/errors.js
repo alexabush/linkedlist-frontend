@@ -1,5 +1,8 @@
-import { ADD_ERROR, REMOVE_ERROR } from "../actionTypes";
+import { ADD_ERROR, REMOVE_ERROR } from '../actionTypes';
 
+/*
+generic error handler in our reducer
+*/
 export default (state = { message: null }, action) => {
   switch (action.type) {
     case ADD_ERROR:
