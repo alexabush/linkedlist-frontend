@@ -1,25 +1,26 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AuthForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      username: "",
-      password: "",
-      firstName: "",
-      lastName: ""
+      email: '',
+      username: '',
+      password: '',
+      firstName: '',
+      lastName: ''
     };
   }
 
   handleSubmit = e => {
     e.preventDefault();
-    const authType = this.props.signIn ? "signin" : "signup";
+    //we use the same form for signin and signup
+    const authType = this.props.signIn ? 'signin' : 'signup';
     this.props
       .onAuth(authType, this.state)
       .then(() => {
-        this.props.history.push("/");
+        this.props.history.push('/');
       })
       .catch(() => {
         // we failed to log in, display the error message

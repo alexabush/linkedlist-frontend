@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 /* Here we are creating a Higher Order Component (or HOC)
 The idea is to wrap a component with a function that ensures the user is logged in
@@ -11,15 +11,22 @@ If not, redirect them to `/signin`
 */
 export default function(ComponentToBeRendered) {
   class Authenticate extends Component {
+    /*
+    When we first mount the component...
+    check if they're logged in
+    */
     componentDidMount() {
       if (!this.props.isAuthenticated) {
-        this.props.history.push("/signin");
+        this.props.history.push('/signin');
       }
     }
-
+    /*
+    When we first update the component...
+    check if they're logged in
+    */
     componentDidUpdate(prevProps) {
       if (!prevProps.isAuthenticated) {
-        this.props.history.push("/signin");
+        this.props.history.push('/signin');
       }
     }
 
@@ -29,6 +36,7 @@ export default function(ComponentToBeRendered) {
   }
 
   function mapStateToProps(state) {
+    //the current user has a isAuth property in our redux store
     return {
       isAuthenticated: state.currentUser.isAuthenticated
     };

@@ -17,10 +17,13 @@ export function authUser(type, data) {
     try {
       let newUser = await apiCall('post', `/users`, { data });
       let authData = await apiCall('post', `/user-auth`, { data });
+      /* This lets us just do all this once*/
+
       // once we have logged in, set a token in localStorage
       localStorage.setItem('jwtToken', authData.data.token);
       // set a header of Authorization
       setAuthorizationToken(authData.data.token);
+      //changes isAuthenticated to true
       // set a currentUser in Redux
       dispatch(setCurrentUser({ username: newUser.username }));
       // remove any error messages

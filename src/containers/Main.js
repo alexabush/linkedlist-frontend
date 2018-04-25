@@ -1,12 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { Switch, Route, withRouter, Redirect } from "react-router-dom";
-import { removeError } from "../store/actions/errors";
-import { authUser, loginUser } from "../store/actions/auth";
-import Homepage from "../components/Homepage";
-import AuthForm from "../components/AuthForm";
-import withAuth from "../hocs/withAuth";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
+import { removeError } from '../store/actions/errors';
+import { authUser, loginUser } from '../store/actions/auth';
+import Homepage from '../components/Homepage';
+import AuthForm from '../components/AuthForm';
+import withAuth from '../hocs/withAuth';
 
 const Main = props => {
   const { authUser, currentUser, errors, removeError, loginUser } = props;
@@ -54,6 +54,7 @@ const Main = props => {
         />
         <Route
           path="/secret"
+          //withAuth makes protected routes
           component={withAuth(() => <h1>Secret Page!</h1>)}
         />
         <Route
@@ -84,5 +85,6 @@ Main.propTypes = {
 };
 
 export default withRouter(
+  //place action creators onto props
   connect(mapStateToProps, { loginUser, authUser, removeError })(Main)
 );
