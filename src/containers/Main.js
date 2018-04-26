@@ -10,6 +10,7 @@ import withAuth from '../hocs/withAuth';
 
 const Main = props => {
   console.log('rendering main');
+  debugger;
   const { authUser, currentUser, errors, removeError, loginUser } = props;
   return (
     <div className="container">

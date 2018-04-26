@@ -7,7 +7,6 @@ configure store is just a wrapper so we can call all this logic in another file
 */
 export function configureStore() {
   console.log('in configureStore');
-  debugger;
   const store = createStore(
     rootReducer,
     //compose allows us to join together multiple pieces of middleware

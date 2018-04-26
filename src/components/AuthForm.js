@@ -14,7 +14,7 @@ class AuthForm extends Component {
   }
 
   handleSubmit = e => {
-    debugger;
+    // debugger;
     console.log(this.state);
     console.log('entering handle submit');
     e.preventDefault();
@@ -47,9 +47,10 @@ class AuthForm extends Component {
       history,
       removeError
     } = this.props;
-    //what does this do?
+    //what does this do? listening for a change in a route
     history.listen(() => {
-      removeError();
+      console.log('in history listen', errors);
+      removeError(); // if the error property is null in redux don't do this - store.getState() // errors.message =
     });
     return (
       <div>
