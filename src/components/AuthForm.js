@@ -47,6 +47,7 @@ class AuthForm extends Component {
       history,
       removeError
     } = this.props;
+    // debugger;
     //what does this do?
     // history.listen(() => {
     //   removeError();
