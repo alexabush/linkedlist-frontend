@@ -37,6 +37,7 @@ export function authUser(type, data) {
 }
 
 export function loginUser(type, data) {
+  console.log('in loginUser');
   return async dispatch => {
     try {
       let authData = await apiCall('post', `/user-auth`, { data });
