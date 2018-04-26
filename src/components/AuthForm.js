@@ -48,9 +48,9 @@ class AuthForm extends Component {
       removeError
     } = this.props;
     //what does this do?
-    history.listen(() => {
-      removeError();
-    });
+    // history.listen(() => {
+    //   removeError();
+    // });
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
