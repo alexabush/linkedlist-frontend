@@ -3,6 +3,7 @@ import ListWrapper from '../ListWrapper';
 import Navbar from '../../containers/Navbar';
 import UserCard from '../../components/UserCard';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 const UserProfileStyle = styled.div`
   border: 1px solid blue;
@@ -17,14 +18,33 @@ class UserProfile extends Component {
   render() {
     return (
       <UserProfileStyle>
-        <Navbar />
+        <Navbar
+          isAuthenticated={this.props.isAuthenticated}
+          user={this.props.user}
+        />
         <h1>User Profile</h1>
-        <UserCard />
-        <ListWrapper />
-        <ListWrapper />
+        <UserCard
+          isAuthenticated={this.props.isAuthenticated}
+          user={this.props.user}
+        />
+        <ListWrapper
+          isAuthenticated={this.props.isAuthenticated}
+          user={this.props.user}
+        />
+        <ListWrapper
+          isAuthenticated={this.props.isAuthenticated}
+          user={this.props.user}
+        />
       </UserProfileStyle>
     );
   }
 }
 
-export default UserProfile;
+function mapStateToProps(reduxState) {
+  return {
+    isAuthenticated: reduxState.isAuthenticated,
+    user: reduxState.user
+  };
+}
+
+export default connect(mapStateToProps)(UserProfile);
