@@ -36,6 +36,8 @@ export function authUser(type, data) {
       dispatch(removeError());
       return;
     } catch (err) {
+      console.log('in auth user error block');
+      debugger;
       dispatch(addError(err.message));
       return Promise.reject(err); // indicate the API call failed
     }
