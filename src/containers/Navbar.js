@@ -6,7 +6,13 @@ import { logout } from '../store/actions/auth';
 
 class Navbar extends Component {
   logout = e => {
+    console.log('in logout');
     e.preventDefault();
+    /*from auth,
+    clears localStorate
+    removes Authorization header
+    sends dispatch to set the current user to an empty object
+    */
     this.props.logout();
   };
 

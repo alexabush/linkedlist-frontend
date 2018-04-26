@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 const Homepage = ({ currentUser }) => {
   console.log('rendering homepage');
   if (!currentUser.isAuthenticated) {
+    //change this so it redirects to the homepage?
     return (
       <div>
         <h1>Welcome to Linked List!</h1>

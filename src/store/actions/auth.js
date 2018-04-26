@@ -17,24 +17,28 @@ export function authUser(type, data) {
   // debugger;
   return async dispatch => {
     try {
-      console.log(apiCall);
+      console.log('about to make post request to users');
       // debugger;
       let newUser = await apiCall('post', `/users`, { data });
-      // debugger;
+      console.log('about to make post request to user-auth');
       let authData = await apiCall('post', `/user-auth`, { data });
       /* This lets us just do all this once*/
       // debugger;
       // once we have logged in, set a token in localStorage
+      console.log('about to set jawt in local storate');
       localStorage.setItem('jwtToken', authData.data.token);
       // set a header of Authorization
       // debugger;
+      console.log('about to call setAuthorizationToken');
       setAuthorizationToken(authData.data.token);
       // debugger;
       //changes isAuthenticated to true
       // set a currentUser in Redux
+      console.log('about to dispatch using setCurrentUser');
       dispatch(setCurrentUser({ username: newUser.username }));
       // debugger;
       // remove any error messages
+      console.log('about to dispatch removeError');
       dispatch(removeError());
       return;
     } catch (err) {
@@ -53,7 +57,11 @@ export function loginUser(type, data) {
       let authData = await apiCall('post', `/user-auth`, { data });
       // once we have logged in, set a token in localStorage
       localStorage.setItem('jwtToken', authData.data.token);
-      // set a header of Authorization
+      /* set a header of Authorization
+      from api:
+      if we have a token, add a Authorization header
+      if we don't have a token, delete Authorization header
+      */
       setAuthorizationToken(authData.data.token);
       // set a currentUser in Redux
       dispatch(setCurrentUser({ username: data.username }));

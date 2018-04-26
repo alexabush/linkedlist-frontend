@@ -16,6 +16,7 @@ export default function(ComponentToBeRendered) {
     check if they're logged in
     */
     componentDidMount() {
+      console.log('in componentDidMount');
       if (!this.props.isAuthenticated) {
         this.props.history.push('/signin');
       }
@@ -25,6 +26,7 @@ export default function(ComponentToBeRendered) {
     check if they're logged in
     */
     componentDidUpdate(prevProps) {
+      console.log('in componentDidUpdate');
       if (!prevProps.isAuthenticated) {
         this.props.history.push('/signin');
       }

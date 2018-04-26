@@ -14,8 +14,8 @@ class AuthForm extends Component {
   }
 
   handleSubmit = e => {
-    debugger;
-    console.log(this.state);
+    // debugger;
+    // console.log(this.state);
     console.log('entering handle submit');
     e.preventDefault();
     //we use the same form for signin and signup
@@ -27,6 +27,7 @@ class AuthForm extends Component {
       })
       .catch(() => {
         // we failed to log in, display the error message
+        console.log('in AuthForm handleSubmit; login failed!');
         return;
       });
   };
@@ -49,9 +50,10 @@ class AuthForm extends Component {
     } = this.props;
     // debugger;
     //what does this do?
-    // history.listen(() => {
-    //   removeError();
-    // });
+    history.listen(() => {
+      console.log('in history.listen');
+      removeError();
+    });
     return (
       <div>
         <form onSubmit={this.handleSubmit}>

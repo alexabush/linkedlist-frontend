@@ -4,6 +4,7 @@ import { ADD_ERROR, REMOVE_ERROR } from '../actionTypes';
 generic error handler in our reducer
 */
 export default (state = { message: null }, action) => {
+  console.log('in error reducer');
   switch (action.type) {
     case ADD_ERROR:
       return { ...state, message: action.error };

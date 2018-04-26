@@ -9,8 +9,16 @@ import AuthForm from '../components/AuthForm';
 import withAuth from '../hocs/withAuth';
 
 const Main = props => {
-  console.log('rendering main');
+  console.log('in Main component');
   const { authUser, currentUser, errors, removeError, loginUser } = props;
+  console.log(
+    'Props for Main',
+    authUser,
+    currentUser,
+    errors,
+    removeError,
+    loginUser
+  );
   return (
     <div className="container">
       <Switch>
@@ -18,6 +26,7 @@ const Main = props => {
           exact
           path="/signin"
           render={props => {
+            console.log('in /signin switch');
             if (currentUser.isAuthenticated) {
               return <Redirect to="/" />;
             }
@@ -38,6 +47,7 @@ const Main = props => {
           exact
           path="/signup"
           render={props => {
+            console.log('in /signup switch');
             if (currentUser.isAuthenticated) {
               return <Redirect to="/" />;
             }
@@ -56,12 +66,18 @@ const Main = props => {
         <Route
           path="/secret"
           //withAuth makes protected routes
-          component={withAuth(() => <h1>Secret Page!</h1>)}
+          component={withAuth(() => {
+            console.log('in /secret switch');
+            return <h1>Secret Page!</h1>;
+          })}
         />
         <Route
           exact
           path="/"
-          render={props => <Homepage {...props} currentUser={currentUser} />}
+          render={props => {
+            console.log('in / switch');
+            return <Homepage {...props} currentUser={currentUser} />;
+          }}
         />
       </Switch>
     </div>

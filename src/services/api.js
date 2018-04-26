@@ -15,6 +15,7 @@ we could do this manually in our code, but it'd be inefficient
 when they logout, we can use the same function to delete the header
 */
 export function setTokenHeader(token) {
+  console.log('in setTokenHeader');
   if (token) {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   } else {
