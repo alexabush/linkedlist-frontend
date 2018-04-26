@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 
 const UserCardStyle = styled.div`
   height: 200px;
@@ -17,6 +16,7 @@ class UserCard extends Component {
   state = {};
   render() {
     console.log('in UserCard');
+    console.log('current user data: ', this.props.user);
     debugger;
     return (
       <UserCardStyle>
@@ -27,7 +27,7 @@ class UserCard extends Component {
           <div>Connect</div>
         </div>
         <div>
-          <h1>User Name {this.props.user.username}</h1>
+          {/* <h1>User Name {this.props.user.data.firstName}</h1> */}
           <div>
             <div>Current Job Title</div>
             <div>Current Job</div>

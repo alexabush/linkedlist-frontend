@@ -19,20 +19,20 @@ const UserProfileStyle = styled.div`
 class UserProfile extends Component {
   async componentDidMount() {
     console.log('in componentDidMount');
-    debugger;
+    // debugger;
     // const userData = await apiCall('GET', 'localhost:8081/users/mrIrons', {});
-    debugger;
+    // debugger;
     const userData = await axios.get('http://localhost:8081/users/mrIrons');
     console.log(userData);
     debugger;
-    this.props.dispatch(setCurrentUser(userData));
-    debugger;
+    this.props.dispatch(setCurrentUser(userData.data));
+    // debugger;
   }
 
   render() {
     console.log('in UserProfile');
     console.log('props', this.props.user);
-    debugger;
+    // debugger;
     return (
       <UserProfileStyle>
         <Navbar
@@ -59,7 +59,7 @@ class UserProfile extends Component {
 
 function mapStateToProps(reduxState) {
   console.log('in UserProfile mapStateToProps');
-  debugger;
+  // debugger;
   return {
     isAuthenticated: reduxState.currentUser.isAuthenticated,
     user: reduxState.currentUser.user
