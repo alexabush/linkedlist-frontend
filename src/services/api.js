@@ -37,8 +37,10 @@ gives back a friendlier positive response and a friendlier error message
 */
 
 export async function apiCall(method, path, data) {
+  console.log('in apiCall');
   try {
-    let res = await axios[method](path, data);
+    let res = await axios[method](path);
+    debugger;
     return res.data;
   } catch (err) {
     return Promise.reject(err.response.data.error);

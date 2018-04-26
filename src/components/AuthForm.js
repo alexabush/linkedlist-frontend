@@ -52,6 +52,11 @@ class AuthForm extends Component {
       console.log('in history listen', errors);
       removeError(); // if the error property is null in redux don't do this - store.getState() // errors.message =
     });
+    // debugger;
+    //what does this do?
+    // history.listen(() => {
+    //   removeError();
+    // });
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
