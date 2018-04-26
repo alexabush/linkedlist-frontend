@@ -8,7 +8,7 @@ import Main from './Main';
 import jwtDecode from 'jwt-decode';
 
 const store = configureStore();
-
+console.log('called configure store');
 /*
 if you refresh the page and there's a token, lets do some stuff
 
@@ -16,6 +16,7 @@ if you refresh the page and there's a token, lets do some stuff
 so we don't make the user log in again if they just refresh or something
 */
 if (localStorage.jwtToken) {
+  console.log('in refresher');
   //tamper-proof testing
   setAuthorizationToken(localStorage.jwtToken);
   // prevent someone from manually setting a key of 'jwtToken' in localStorage

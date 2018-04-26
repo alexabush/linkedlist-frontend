@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Homepage = ({ currentUser }) => {
+  console.log('rendering homepage');
   if (!currentUser.isAuthenticated) {
     return (
       <div>

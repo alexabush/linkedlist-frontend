@@ -13,6 +13,7 @@ export function setAuthorizationToken(token) {
 
 //thunk time
 export function authUser(type, data) {
+  console.log('in authUser');
   return async dispatch => {
     try {
       let newUser = await apiCall('post', `/users`, { data });
@@ -58,6 +59,7 @@ export function loginUser(type, data) {
 }
 
 export function logout() {
+  console.log('in logout');
   // we need to make this a thunk so that we can dispatch setCurrentUser
   return dispatch => {
     // clear the token from localStorage
@@ -70,6 +72,7 @@ export function logout() {
 }
 
 export function setCurrentUser(user) {
+  console.log('in setCurrentUser');
   return {
     type: SET_CURRENT_USER,
     user
