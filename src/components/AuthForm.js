@@ -48,6 +48,11 @@ class AuthForm extends Component {
       history,
       removeError
     } = this.props;
+    //what does this do? listening for a change in a route
+    history.listen(() => {
+      console.log('in history listen', errors);
+      removeError(); // if the error property is null in redux don't do this - store.getState() // errors.message =
+    });
     // debugger;
     //what does this do?
     history.listen(() => {
