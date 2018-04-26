@@ -5,8 +5,10 @@ import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
 import { removeError } from '../store/actions/errors';
 import { authUser, loginUser } from '../store/actions/auth';
 import Homepage from '../components/Homepage';
-import AuthForm from '../components/AuthForm';
+// import AuthForm from '../components/AuthForm';
 import withAuth from '../hocs/withAuth';
+
+import FormWrapper from '../components/FormWrapper';
 
 const Main = props => {
   console.log('in Main component');
@@ -31,7 +33,8 @@ const Main = props => {
               return <Redirect to="/" />;
             }
             return (
-              <AuthForm
+              <FormWrapper
+                targetForm="AuthForm"
                 buttonText="Log in"
                 errors={errors}
                 removeError={removeError}
@@ -52,7 +55,7 @@ const Main = props => {
               return <Redirect to="/" />;
             }
             return (
-              <AuthForm
+              <FormWrapper
                 removeError={removeError}
                 buttonText="Sign me up!"
                 errors={errors}
