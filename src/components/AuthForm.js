@@ -14,6 +14,8 @@ class AuthForm extends Component {
   }
 
   handleSubmit = e => {
+    debugger;
+    console.log('entering handle submit');
     e.preventDefault();
     //we use the same form for signin and signup
     const authType = this.props.signIn ? 'signin' : 'signup';
@@ -33,6 +35,7 @@ class AuthForm extends Component {
   };
 
   render() {
+    console.log('in auth form render');
     const { email, username, password, firstName, lastName } = this.state;
     const {
       signIn,
@@ -42,7 +45,7 @@ class AuthForm extends Component {
       history,
       removeError
     } = this.props;
-    //da fuq?
+    //what does this do?
     history.listen(() => {
       removeError();
     });
