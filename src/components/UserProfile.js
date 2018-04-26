@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import ListWrapper from './ListWrapper';
 import Navbar from '../containers/Navbar';
-import styled from 'styled-components';
 import UserCard from '../components/UserCard';
+import styled from 'styled-components';
 
 const UserProfileStyle = styled.div`
-  height: 300px;
-  width: 400px;
-  background-color: lightgray;
-  margin: 50px auto;
+  border: 1px solid blue;
   display: flex;
   flex-direction: column;
   align-items: center;
+  // justify-content: space-around;
 `;
 
 class UserProfile extends Component {
@@ -20,8 +18,9 @@ class UserProfile extends Component {
     return (
       <UserProfileStyle>
         <Navbar />
-        <h1>User Feed</h1>
+        <h1>User Profile</h1>
         <UserCard />
+        <ListWrapper />
         <ListWrapper />
       </UserProfileStyle>
     );

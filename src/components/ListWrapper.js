@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const ListStyle = styled.div`
-  height: 300px;
-  width: 400px;
-  background-color: green;
+  // height: 200px;
+  width: 90%;
+  background-color: lightpink;
   margin: 50px auto;
   display: flex;
   flex-direction: column;

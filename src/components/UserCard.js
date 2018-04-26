@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const UserCardStyle = styled.div`
-  // height: 300px;
-  // width: 400px;
+  height: 200px;
+  width: 90%;
   background-color: lightblue;
   margin: 50px auto;
   display: flex;
@@ -12,6 +12,7 @@ const UserCardStyle = styled.div`
 `;
 
 class UserCard extends Component {
+  //everything can be broken into atoms!
   state = {};
   render() {
     return (
