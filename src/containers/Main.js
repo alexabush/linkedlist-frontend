@@ -8,7 +8,7 @@ import Homepage from '../components/Homepage';
 // import AuthForm from '../components/AuthForm';
 import withAuth from '../hocs/withAuth';
 import ListWrapper from '../components/ListWrapper';
-import UserProfile from '../components/UserProfile';
+import UserProfile from '../components/pages/UserProfile';
 
 import FormWrapper from '../components/FormWrapper';
 

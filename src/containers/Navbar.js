@@ -3,6 +3,14 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../store/actions/auth';
+import styled from 'styled-components';
+
+const NavBarStyle = styled.nav`
+  border: 1px solid blue;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
 
 class Navbar extends Component {
   logout = e => {
@@ -18,7 +26,8 @@ class Navbar extends Component {
 
   render() {
     return (
-      <nav>
+      <NavBarStyle>
+        <div>Search Bar</div>
         {this.props.currentUser.isAuthenticated ? (
           <ul>
             <li>
@@ -37,7 +46,7 @@ class Navbar extends Component {
             </li>
           </ul>
         )}
-      </nav>
+      </NavBarStyle>
     );
   }
 }

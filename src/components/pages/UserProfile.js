@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ListWrapper from './ListWrapper';
-import Navbar from '../containers/Navbar';
-import UserCard from '../components/UserCard';
+import ListWrapper from '../ListWrapper';
+import Navbar from '../../containers/Navbar';
+import UserCard from '../../components/UserCard';
 import styled from 'styled-components';
 
 const UserProfileStyle = styled.div`
