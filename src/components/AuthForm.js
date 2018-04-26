@@ -14,6 +14,8 @@ class AuthForm extends Component {
   }
 
   handleSubmit = e => {
+    debugger;
+    console.log(this.state);
     e.preventDefault();
     //we use the same form for signin and signup
     const authType = this.props.signIn ? 'signin' : 'signup';
@@ -33,6 +35,7 @@ class AuthForm extends Component {
   };
 
   render() {
+    // debugger;
     const { email, username, password, firstName, lastName } = this.state;
     const {
       signIn,
