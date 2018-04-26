@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class AuthForm extends Component {
   constructor(props) {
@@ -120,6 +121,7 @@ class AuthForm extends Component {
             </div>
           )}
           <button type="submit">{buttonText}</button>
+          {signIn && <Link to="/signup">Sign up</Link>}
         </form>
       </div>
     );

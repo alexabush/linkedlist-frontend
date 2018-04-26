@@ -37,7 +37,7 @@ const App = () => (
   <Provider store={store}>
     <Router>
       <div>
-        <Navbar />
+        {/* <Navbar /> */}
         <Main />
       </div>
     </Router>

@@ -10,6 +10,7 @@ const Homepage = ({ currentUser }) => {
     return (
       <div>
         <h1>Welcome to Linked List!</h1>
+        <h2>This is the home page</h2>
         <Link to="/signup">Sign up here</Link>
       </div>
     );

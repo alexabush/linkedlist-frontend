@@ -57,9 +57,9 @@ const Main = props => {
             return (
               <FormWrapper
                 removeError={removeError}
-                buttonText="Sign me up!"
+                buttonText="Sign up"
                 errors={errors}
-                heading="Join Linked List today."
+                heading="New User Form"
                 onAuth={authUser}
                 {...props}
               />
@@ -79,7 +79,8 @@ const Main = props => {
           path="/"
           render={props => {
             console.log('in / switch');
-            return <Homepage {...props} currentUser={currentUser} />;
+            return <Redirect to="/signin" />;
+            // return <Homepage {...props} currentUser={currentUser} />;
           }}
         />
       </Switch>
