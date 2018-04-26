@@ -40,7 +40,7 @@ gives back a friendlier positive response and a friendlier error message
 export async function apiCall(method, path, data) {
   console.log('in apiCall');
   try {
-    let res = await axios[method](path);
+    let res = await axios[method](path, data);
     debugger;
     return res.data;
   } catch (err) {

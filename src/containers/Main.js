@@ -7,6 +7,8 @@ import { authUser, loginUser } from '../store/actions/auth';
 import Homepage from '../components/Homepage';
 // import AuthForm from '../components/AuthForm';
 import withAuth from '../hocs/withAuth';
+import ListWrapper from '../components/ListWrapper';
+import UserProfile from '../components/UserProfile';
 
 import FormWrapper from '../components/FormWrapper';
 
@@ -79,7 +81,14 @@ const Main = props => {
           path="/"
           render={props => {
             console.log('in / switch');
-            return <Redirect to="/signin" />;
+            if (!currentUser.isAuthenticated) {
+              return <Redirect to="/signin" />;
+            } else {
+              return <UserProfile />;
+              // return <ListWrapper />;
+              // return <h1>You're logged in! Cool.</h1>;
+            }
+
             // return <Homepage {...props} currentUser={currentUser} />;
           }}
         />

@@ -52,13 +52,9 @@ class AuthForm extends Component {
     //what does this do? listening for a change in a route
     history.listen(() => {
       console.log('in history listen', errors);
-      removeError(); // if the error property is null in redux don't do this - store.getState() // errors.message =
-    });
-    // debugger;
-    //what does this do?
-    history.listen(() => {
-      console.log('in history.listen');
-      removeError();
+      if (errors.message) {
+        removeError();
+      } // if the error property is null in redux don't do this - store.getState() // errors.message =
     });
     return (
       <div>
@@ -121,7 +117,11 @@ class AuthForm extends Component {
             </div>
           )}
           <button type="submit">{buttonText}</button>
-          {signIn && <Link to="/signup">Sign up</Link>}
+          {signIn ? (
+            <Link to="/signup">Sign up</Link>
+          ) : (
+            <Link to="/signin">Sign in</Link>
+          )}
         </form>
       </div>
     );
