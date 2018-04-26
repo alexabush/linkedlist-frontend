@@ -4,6 +4,9 @@ import Navbar from '../../containers/Navbar';
 import UserCard from '../../components/UserCard';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import axios from 'axios';
+import { setCurrentUser } from '../../store/actions/auth';
+import { apiCall } from '../../services/api';
 
 const UserProfileStyle = styled.div`
   border: 1px solid blue;
@@ -14,8 +17,22 @@ const UserProfileStyle = styled.div`
 `;
 
 class UserProfile extends Component {
-  state = {};
+  async componentDidMount() {
+    console.log('in componentDidMount');
+    debugger;
+    // const userData = await apiCall('GET', 'localhost:8081/users/mrIrons', {});
+    debugger;
+    const userData = await axios.get('http://localhost:8081/users/mrIrons');
+    console.log(userData);
+    debugger;
+    this.props.dispatch(setCurrentUser(userData));
+    debugger;
+  }
+
   render() {
+    console.log('in UserProfile');
+    console.log('props', this.props.user);
+    debugger;
     return (
       <UserProfileStyle>
         <Navbar
@@ -41,9 +58,11 @@ class UserProfile extends Component {
 }
 
 function mapStateToProps(reduxState) {
+  console.log('in UserProfile mapStateToProps');
+  debugger;
   return {
-    isAuthenticated: reduxState.isAuthenticated,
-    user: reduxState.user
+    isAuthenticated: reduxState.currentUser.isAuthenticated,
+    user: reduxState.currentUser.user
   };
 }
 
