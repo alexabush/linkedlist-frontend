@@ -20,6 +20,12 @@ const UserProfileStyle = styled.div`
 `;
 
 class UserProfile extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isEdit: false
+    };
+  }
   async componentDidMount() {
     console.log('in componentDidMount');
     const userData = await axios.get(
@@ -46,6 +52,7 @@ class UserProfile extends Component {
         <ExperienceList
           isAuthenticated={this.props.isAuthenticated}
           user={this.props.user}
+          isEdit={this.state.isEdit}
         />
         {/* <EducationList
           isAuthenticated={this.props.isAuthenticated}

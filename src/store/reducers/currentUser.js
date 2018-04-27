@@ -40,7 +40,7 @@ doing the isAuth here lets us just check this property whenever we want througho
         // isAuthenticated: !!Object.keys(action.user).length,
         isAuthenticated: Object.keys(action.user).length > 0,
         //user data
-        user: action.user
+        user: { ...state.user, ...action.user }
       };
     default:
       return state;
