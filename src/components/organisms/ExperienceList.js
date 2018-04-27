@@ -14,6 +14,7 @@ class ExperienceList extends Component {
   state = {};
   render() {
     debugger;
+    console.log('in experience list', this.props.user.experience);
     let listItems;
     if (this.props.user.experience) {
       listItems = this.props.user.experience.map(item => {
