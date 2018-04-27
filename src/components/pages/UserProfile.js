@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ExperienceList from '../organisms/ExperienceList';
 import EducationList from '../organisms/EducationList';
+import SkillsList from '../organisms/SkillsList';
 import Navbar from '../../containers/Navbar';
 import UserCard from '../../components/UserCard';
 import styled from 'styled-components';
@@ -55,6 +56,7 @@ class UserProfile extends Component {
           user={this.props.user}
           // education={this.props.user.education}
         />
+        <SkillsList />
       </UserProfileStyle>
     );
   }
