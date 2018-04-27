@@ -26,6 +26,7 @@ class UserProfile extends Component {
       isEdit: false
     };
   }
+
   async componentDidMount() {
     console.log('in componentDidMount');
     const userData = await axios.get(
@@ -33,6 +34,12 @@ class UserProfile extends Component {
     );
     this.props.dispatch(setCurrentUser(userData.data.data));
   }
+
+  toggleEdit = prevState => {
+    let copyState = { ...prevState };
+    let newEditState = !copyState.isEdit;
+    this.setState({ ...copyState, isEdit: newEditState });
+  };
 
   render() {
     console.log('in UserProfile');
@@ -53,6 +60,7 @@ class UserProfile extends Component {
           isAuthenticated={this.props.isAuthenticated}
           user={this.props.user}
           isEdit={this.state.isEdit}
+          toggleEdit={this.toggleEdit}
         />
         {/* <EducationList
           isAuthenticated={this.props.isAuthenticated}
