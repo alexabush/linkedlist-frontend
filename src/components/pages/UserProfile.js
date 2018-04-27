@@ -44,7 +44,7 @@ class UserProfile extends Component {
   render() {
     console.log('in UserProfile');
     console.log('props', this.props.user);
-    // debugger;
+    debugger;
     return (
       <UserProfileStyle>
         <Navbar
