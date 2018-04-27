@@ -6,7 +6,7 @@ import errors from './errors';
 combine reducers combines are reducers...yeah
 */
 const rootReducer = combineReducers({
-  currentUser,
+  currentUser: currentUser,
   errors
 });
 

@@ -64,6 +64,7 @@ export function loginUser(type, data) {
       */
       setAuthorizationToken(authData.data.token);
       // set a currentUser in Redux
+      // dispatch(setCurrentUser({ username: data.username }));
       dispatch(setCurrentUser({ username: data.username }));
       // remove any error messages
       dispatch(removeError());
