@@ -4,7 +4,7 @@ class Experience extends Component {
   state = {};
   render() {
     console.log('in Experience');
-    debugger;
+    // debugger;
     return (
       <div>
         <img src="" alt="" />

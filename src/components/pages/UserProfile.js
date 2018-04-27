@@ -66,12 +66,6 @@ class UserProfile extends Component {
           isEdit={this.state.isEdit}
           toggleEdit={this.toggleEdit}
         />
-        {/* <ExperienceEditForm
-          isAuthenticated={this.props.isAuthenticated}
-          user={this.props.user}
-          // isEdit={this.state.isEdit}
-          toggleEdit={this.toggleEdit}
-        /> */}
         {/* <EducationList
           isAuthenticated={this.props.isAuthenticated}
           user={this.props.user}
