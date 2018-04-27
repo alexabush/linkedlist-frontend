@@ -15,12 +15,9 @@ class ExperienceList extends Component {
   render() {
     //we need to pass in the array of jobs
     let listItems;
-    if (this.props.listItems) {
-      listItems = this.props.listItems.map(item => {
-        <li>
-          {this.props.component && this.props.component}
-          This is a component
-        </li>;
+    if (this.props.experience) {
+      listItems = this.props.experience.map(item => {
+        <li>This is a component</li>;
       });
     }
     return (
