@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-/*
-THIS IS A DEPRECATED MODULE
-REFER TO EDUCATIONLIST OR EXPERIENCELIST INSTEAD
-*/
-
 const ListStyle = styled.div`
   width: 90%;
   background-color: lightpink;
@@ -15,7 +10,7 @@ const ListStyle = styled.div`
   align-items: center;
 `;
 
-class ListWrapper extends Component {
+class ExperienceList extends Component {
   state = {};
   render() {
     //we need to pass in the array of jobs
@@ -43,4 +38,4 @@ class ListWrapper extends Component {
   }
 }
 
-export default ListWrapper;
+export default ExperienceList;
