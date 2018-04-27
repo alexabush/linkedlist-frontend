@@ -45,10 +45,20 @@ class UserProfile extends Component {
     });
   };
 
+  updateUserData = userData => {
+    console.log('in updateUserData');
+    debugger;
+    // apiCall(
+    //   'PATCH',
+    //   `http://localhost:8081/users/${this.props.user.username}`,
+    //   userData
+    // );
+  };
+
   render() {
     console.log('in UserProfile');
     console.log('props', this.props.user);
-    debugger;
+    // debugger;
     return (
       <UserProfileStyle>
         <Navbar
@@ -65,6 +75,7 @@ class UserProfile extends Component {
           user={this.props.user}
           isEdit={this.state.isEdit}
           toggleEdit={this.toggleEdit}
+          updateUserData={this.updateUserData}
         />
         {/* <EducationList
           isAuthenticated={this.props.isAuthenticated}

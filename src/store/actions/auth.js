@@ -14,36 +14,29 @@ export function setAuthorizationToken(token) {
 //thunk time
 export function authUser(type, data) {
   console.log('in authUser');
-  // debugger;
   return async dispatch => {
     try {
       console.log('about to make post request to users');
-      // debugger;
       let newUser = await apiCall('post', `/users`, { data });
       console.log('about to make post request to user-auth');
       let authData = await apiCall('post', `/user-auth`, { data });
       /* This lets us just do all this once*/
-      // debugger;
       // once we have logged in, set a token in localStorage
       console.log('about to set jawt in local storage');
       localStorage.setItem('jwtToken', authData.data.token);
       // set a header of Authorization
-      // debugger;
       console.log('about to call setAuthorizationToken');
       setAuthorizationToken(authData.data.token);
-      // debugger;
       //changes isAuthenticated to true
       // set a currentUser in Redux
       console.log('about to dispatch using setCurrentUser');
       dispatch(setCurrentUser({ username: newUser.username }));
-      // debugger;
       // remove any error messages
       console.log('about to dispatch removeError');
       dispatch(removeError());
       return;
     } catch (err) {
       console.log('in auth user error block');
-      // debugger;
       dispatch(addError(err.message));
       return Promise.reject(err); // indicate the API call failed
     }

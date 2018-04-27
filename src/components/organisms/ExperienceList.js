@@ -40,6 +40,7 @@ class ExperienceList extends Component {
             jobTitle={item.jobTitle}
             startDate={item.startDate}
             endDate={item.endDate}
+            updateUserData={this.props.updateUserData}
           />
         </li>
       ));

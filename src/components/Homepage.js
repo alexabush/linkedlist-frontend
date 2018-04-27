@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Homepage = ({ currentUser }) => {
   console.log('rendering homepage');
-  debugger;
+  // debugger;
   if (!currentUser.isAuthenticated) {
     //change this so it redirects to the homepage?
     return (

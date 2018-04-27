@@ -23,11 +23,11 @@ class ExperienceEditForm extends Component {
   }
 
   handleSubmit(e) {
+    console.log('in ExperienceEditForm handleSubmit');
     e.preventDefault();
+    //we need username and token for auth
     // This needs to submit to somewhere
-    //probably will be a dispatch
-    // this.props.submitData({ ...this.state });
-    this.setState({ companyName: '', jobTitle: '' });
+    this.props.updateUserData({ ...this.state });
     e.target.reset();
     //i need a redirect or re-render of sorts here
   }
@@ -39,6 +39,7 @@ class ExperienceEditForm extends Component {
   }
 
   render() {
+    console.log('in ExperienceEditForm');
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
