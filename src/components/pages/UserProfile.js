@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import { setCurrentUser } from '../../store/actions/auth';
 import { apiCall } from '../../services/api';
+import ExperienceEditForm from '../organisms/ExperienceEditForm';
 
 const UserProfileStyle = styled.div`
   // border: 1px solid blue;
@@ -35,10 +36,14 @@ class UserProfile extends Component {
     this.props.dispatch(setCurrentUser(userData.data.data));
   }
 
-  toggleEdit = prevState => {
-    let copyState = { ...prevState };
-    let newEditState = !copyState.isEdit;
-    this.setState({ ...copyState, isEdit: newEditState });
+  toggleEdit = () => {
+    console.log('in toggleEdit');
+    this.setState(prevState => {
+      // debugger;
+      let copyState = { ...prevState };
+      let newEditState = !copyState.isEdit;
+      return { ...copyState, isEdit: newEditState };
+    });
   };
 
   render() {
@@ -56,12 +61,21 @@ class UserProfile extends Component {
           isAuthenticated={this.props.isAuthenticated}
           user={this.props.user}
         />
-        <ExperienceList
-          isAuthenticated={this.props.isAuthenticated}
-          user={this.props.user}
-          isEdit={this.state.isEdit}
-          toggleEdit={this.toggleEdit}
-        />
+        {!this.props.isEdit ? (
+          <ExperienceList
+            isAuthenticated={this.props.isAuthenticated}
+            user={this.props.user}
+            isEdit={this.state.isEdit}
+            toggleEdit={this.toggleEdit}
+          />
+        ) : (
+          <ExperienceEditForm
+            isAuthenticated={this.props.isAuthenticated}
+            user={this.props.user}
+            // isEdit={this.state.isEdit}
+            toggleEdit={this.toggleEdit}
+          />
+        )}
         {/* <EducationList
           isAuthenticated={this.props.isAuthenticated}
           user={this.props.user}
