@@ -33,7 +33,7 @@ class ExperienceList extends Component {
     }
     return (
       <ListStyle>
-        <button>Edit</button>
+        <button onClick={this.props.toggleEdit}>Edit</button>
         <h2>Experience</h2>
         <ul style={{ listStyleType: 'none' }}>{listItems}</ul>
       </ListStyle>
