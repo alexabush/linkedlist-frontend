@@ -22,8 +22,11 @@ class UserProfile extends Component {
     console.log('in componentDidMount');
     // debugger;
     // const userData = await apiCall('GET', 'localhost:8081/users/mrIrons', {});
-    // debugger;
-    const userData = await axios.get('http://localhost:8081/users/mrIrons');
+    console.log('these are the props: ', this.props);
+    debugger;
+    const userData = await axios.get(
+      `http://localhost:8081/users/${this.props.user.username}`
+    );
     console.log(userData);
     // debugger;
     this.props.dispatch(setCurrentUser(userData.data.data));
