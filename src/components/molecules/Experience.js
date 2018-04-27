@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 class Experience extends Component {
   state = {};
   render() {
+    console.log('in Experience');
+    debugger;
     return (
       <div>
         <img src="" alt="" />
