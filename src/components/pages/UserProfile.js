@@ -38,27 +38,29 @@ class UserProfile extends Component {
   toggleEdit = () => {
     console.log('in toggleEdit');
     this.setState(prevState => {
-      // debugger;
       let copyState = { ...prevState };
       let newEditState = !copyState.isEdit;
       return { ...copyState, isEdit: newEditState };
     });
   };
 
-  updateUserData = userData => {
+  updateUserData = async userData => {
     console.log('in updateUserData');
-    debugger;
-    // apiCall(
-    //   'PATCH',
-    //   `http://localhost:8081/users/${this.props.user.username}`,
-    //   userData
-    // );
+    console.log('userData', userData);
+    //we need to replicate the entire array
+    const updatedData = await apiCall(
+      'patch',
+      `http://localhost:8081/users/${this.props.user.username}`,
+      { data: { experience: [userData] } }
+    );
+    //we should dispatch from here
+    console.log('updatedData', updatedData);
+    this.props.dispatch(setCurrentUser(updatedData.data));
   };
 
   render() {
     console.log('in UserProfile');
     console.log('props', this.props.user);
-    // debugger;
     return (
       <UserProfileStyle>
         <Navbar
@@ -92,7 +94,6 @@ class UserProfile extends Component {
 
 function mapStateToProps(reduxState) {
   console.log('in UserProfile mapStateToProps');
-  // debugger;
   return {
     isAuthenticated: reduxState.currentUser.isAuthenticated,
     user: reduxState.currentUser.user
