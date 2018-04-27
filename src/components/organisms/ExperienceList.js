@@ -33,11 +33,8 @@ class ExperienceList extends Component {
     }
     return (
       <ListStyle>
-        {/* <div>
-          <img src="" alt="" />
-          <h2>{this.props.user.experience}</h2>
-        </div>
-        <button>Edit</button> */}
+        <button>Edit</button>
+        <h2>Experience</h2>
         <ul style={{ listStyleType: 'none' }}>{listItems}</ul>
       </ListStyle>
     );

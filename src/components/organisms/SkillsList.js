@@ -30,13 +30,14 @@ class SkillsList extends Component {
     }
     return (
       <ListStyle>
+        <h2>Skills</h2>
         <StyledUl>{skillLis}</StyledUl>
       </ListStyle>
-      // {skillLis ? (
-      //   ) : (
-      //     <ul>Loading...</ul>
-      //   )}
     );
+    // {skillLis ? (
+    //   ) : (
+    //     <ul>Loading...</ul>
+    //   )}
   }
 }
 
