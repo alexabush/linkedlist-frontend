@@ -17,7 +17,6 @@ class UserCard extends Component {
   render() {
     console.log('in UserCard');
     console.log('current user data: ', this.props);
-    debugger;
     return (
       <UserCardStyle>
         <div>

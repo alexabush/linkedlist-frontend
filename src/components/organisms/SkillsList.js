@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
-import Skill from './Skill';
+import Skill from '../atoms/Skill';
 
 class SkillsList extends Component {
   state = {};
   render() {
-    const skillLis = this.props.skills.map(skill => (
-      <li>
-        <Skill name={skill} />
-      </li>
-    ));
-    return <ul>{skillLis}</ul>;
+    console.log('in SkillsList');
+    let skillLis;
+    if (this.props.user.skills) {
+      skillLis = this.props.user.skills.map(skill => (
+        <li>
+          <Skill name={skill} />
+        </li>
+      ));
+    }
+    return skillLis ? <ul>{skillLis}</ul> : <ul>Loading...</ul>;
   }
 }
 

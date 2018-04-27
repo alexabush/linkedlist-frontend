@@ -21,14 +21,14 @@ const UserProfileStyle = styled.div`
 class UserProfile extends Component {
   async componentDidMount() {
     console.log('in componentDidMount');
-    // debugger;
+    debugger;
     // const userData = await apiCall('GET', 'localhost:8081/users/mrIrons', {});
     const userData = await axios.get(
       `http://localhost:8081/users/${this.props.user.username}`
     );
-    // debugger;
+    debugger;
     this.props.dispatch(setCurrentUser(userData.data.data));
-    // debugger;
+    debugger;
   }
 
   render() {
@@ -49,14 +49,15 @@ class UserProfile extends Component {
         <ExperienceList
           isAuthenticated={this.props.isAuthenticated}
           user={this.props.user}
-          // experience={this.props.user.experience}
         />
         <EducationList
           isAuthenticated={this.props.isAuthenticated}
           user={this.props.user}
-          // education={this.props.user.education}
         />
-        <SkillsList />
+        <SkillsList
+          isAuthenticated={this.props.isAuthenticated}
+          user={this.props.user}
+        />
       </UserProfileStyle>
     );
   }
