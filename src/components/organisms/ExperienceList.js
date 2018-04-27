@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Experience from './Experience';
+import Experience from '../molecules/Experience';
 import styled from 'styled-components';
 
 const ListStyle = styled.div`
@@ -8,7 +8,7 @@ const ListStyle = styled.div`
   margin: 50px auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center;g
 `;
 
 class ExperienceList extends Component {
