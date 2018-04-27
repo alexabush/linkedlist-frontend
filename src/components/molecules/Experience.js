@@ -7,8 +7,12 @@ class Experience extends Component {
       <div>
         <img src="" alt="" />
         <div>
-          <p>Role + Company Name </p>
-          <p>Time at Company</p>
+          <p>
+            {this.props.companyName} {this.props.jobTitle}
+          </p>
+          <p>
+            {this.props.startDate} {this.props.endDate}
+          </p>
         </div>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium a

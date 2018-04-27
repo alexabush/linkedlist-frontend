@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Experience from './Experience';
 import styled from 'styled-components';
 
 const ListStyle = styled.div`
@@ -17,16 +18,23 @@ class ExperienceList extends Component {
     let listItems;
     if (this.props.user.experience) {
       listItems = this.props.user.experience.map(item => {
-        <li>{item}</li>;
+        <li>
+          <Experience
+            companyName={item.companyName}
+            jobTitle={item.jobTitle}
+            startDate={item.startDate}
+            endDate={item.endDate}
+          />
+        </li>;
       });
     }
     return (
       <ListStyle>
-        <div>
+        {/* <div>
           <img src="" alt="" />
           <h2>{this.props.user.experience}</h2>
         </div>
-        <button>Edit</button>
+        <button>Edit</button> */}
         <ul>{listItems}</ul>
       </ListStyle>
     );
