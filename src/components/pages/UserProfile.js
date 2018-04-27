@@ -25,7 +25,7 @@ class UserProfile extends Component {
     const userData = await axios.get('http://localhost:8081/users/mrIrons');
     console.log(userData);
     debugger;
-    this.props.dispatch(setCurrentUser(userData.data));
+    this.props.dispatch(setCurrentUser(userData.data.data));
     // debugger;
   }
 
