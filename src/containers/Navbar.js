@@ -17,7 +17,7 @@ const NavBarStyle = styled.nav`
 `;
 
 class Navbar extends Component {
-  logout = e => {
+  logoutUser = e => {
     console.log('in logout');
     e.preventDefault();
     /*from auth,
@@ -33,7 +33,7 @@ class Navbar extends Component {
       <NavBarStyle>
         <SearchBar />
         <UserThumbnail
-          logout={this.logout}
+          logout={this.logoutUser}
           currentUser={this.props.currentUser}
         />
       </NavBarStyle>

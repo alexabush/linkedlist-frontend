@@ -31,7 +31,7 @@ class UserThumbnail extends Component {
         {this.props.currentUser.isAuthenticated ? (
           <ul>
             <li>
-              <a href="/logout" onClick={this.props.logout}>
+              <a href="/logout" onClick={this.props.logoutUser}>
                 Log out
               </a>
             </li>
