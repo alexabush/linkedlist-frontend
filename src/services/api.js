@@ -41,7 +41,7 @@ export async function apiCall(method, path, data) {
   console.log('in apiCall');
   try {
     let res = await axios[method](path, data);
-    debugger;
+    // debugger;
     return res.data;
   } catch (err) {
     return Promise.reject(err.response.data.error);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Experience from '../molecules/Experience';
 import styled from 'styled-components';
+import ExperienceEditForm from './ExperienceEditForm';
 
 const ListStyle = styled.div`
   width: 90%;
@@ -18,11 +19,23 @@ class ExperienceList extends Component {
     // debugger;
     console.log('in experience list', this.props.user.experience);
     let listItems;
-    if (this.props.user.experience) {
-      debugger;
+    // if (this.props.user.experience) {
+    // debugger;
+    if (this.props.isEdit) {
       listItems = this.props.user.experience.map(item => (
         <li>
           <Experience
+            companyName={item.companyName}
+            jobTitle={item.jobTitle}
+            startDate={item.startDate}
+            endDate={item.endDate}
+          />
+        </li>
+      ));
+    } else {
+      listItems = this.props.user.experience.map(item => (
+        <li>
+          <ExperienceEditForm
             companyName={item.companyName}
             jobTitle={item.jobTitle}
             startDate={item.startDate}

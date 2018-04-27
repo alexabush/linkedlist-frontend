@@ -9,7 +9,6 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import { setCurrentUser } from '../../store/actions/auth';
 import { apiCall } from '../../services/api';
-import ExperienceEditForm from '../organisms/ExperienceEditForm';
 
 const UserProfileStyle = styled.div`
   // border: 1px solid blue;
@@ -61,21 +60,18 @@ class UserProfile extends Component {
           isAuthenticated={this.props.isAuthenticated}
           user={this.props.user}
         />
-        {!this.props.isEdit ? (
-          <ExperienceList
-            isAuthenticated={this.props.isAuthenticated}
-            user={this.props.user}
-            isEdit={this.state.isEdit}
-            toggleEdit={this.toggleEdit}
-          />
-        ) : (
-          <ExperienceEditForm
-            isAuthenticated={this.props.isAuthenticated}
-            user={this.props.user}
-            // isEdit={this.state.isEdit}
-            toggleEdit={this.toggleEdit}
-          />
-        )}
+        <ExperienceList
+          isAuthenticated={this.props.isAuthenticated}
+          user={this.props.user}
+          isEdit={this.state.isEdit}
+          toggleEdit={this.toggleEdit}
+        />
+        {/* <ExperienceEditForm
+          isAuthenticated={this.props.isAuthenticated}
+          user={this.props.user}
+          // isEdit={this.state.isEdit}
+          toggleEdit={this.toggleEdit}
+        /> */}
         {/* <EducationList
           isAuthenticated={this.props.isAuthenticated}
           user={this.props.user}

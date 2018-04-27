@@ -4,8 +4,10 @@ class ExperienceEditForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      description: ''
+      companyName: '',
+      jobTitle: '',
+      startDate: '',
+      endDate: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -13,8 +15,10 @@ class ExperienceEditForm extends Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     return {
-      title: nextProps.title,
-      description: nextProps.description
+      companyName: nextProps.companyName,
+      jobTitle: nextProps.jobTitle,
+      startDate: nextProps.startDate,
+      endDate: nextProps.endDate
     };
   }
 
@@ -23,7 +27,7 @@ class ExperienceEditForm extends Component {
     // This needs to submit to somewhere
     //probably will be a dispatch
     // this.props.submitData({ ...this.state });
-    this.setState({ title: '', description: '' });
+    this.setState({ companyName: '', jobTitle: '' });
     e.target.reset();
     //i need a redirect or re-render of sorts here
   }
@@ -39,21 +43,39 @@ class ExperienceEditForm extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <div className>
-            <label htmlFor="title">Title: </label>
+            <label htmlFor="companyName">companyName: </label>
             <input
-              id="title"
-              name="title"
+              id="companyName"
+              name="companyName"
               onChange={this.handleChange}
-              value={this.state.title}
+              value={this.state.companyName}
             />
           </div>
           <div>
-            <label htmlFor="description">Description: </label>
+            <label htmlFor="jobTitle">Description: </label>
             <input
-              id="description"
-              name="description"
+              id="jobTitle"
+              name="jobTitle"
               onChange={this.handleChange}
-              value={this.state.description}
+              value={this.state.jobTitle}
+            />
+          </div>
+          <div>
+            <label htmlFor="startDate">Start Date: </label>
+            <input
+              id="startDate"
+              name="startDate"
+              onChange={this.handleChange}
+              value={this.state.startDate}
+            />
+          </div>
+          <div>
+            <label htmlFor="endDate">End Date: </label>
+            <input
+              id="endDate"
+              name="endDate"
+              onChange={this.handleChange}
+              value={this.state.endDate}
             />
           </div>
           <input type="submit" />
@@ -64,8 +86,8 @@ class ExperienceEditForm extends Component {
 }
 
 ExperienceEditForm.PropTypes = {
-  // title: PropTypes.string.isRequired,
-  // description: PropTypes.string.isRequired,
+  // companyName: PropTypes.string.isRequired,
+  // jobTitle: PropTypes.string.isRequired,
   // submitData: PropTypes.func.isRequired
 };
 
