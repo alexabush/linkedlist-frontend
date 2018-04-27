@@ -19,7 +19,7 @@ class ExperienceList extends Component {
     let listItems;
     if (this.props.user.experience) {
       debugger;
-      listItems = this.props.user.experience.map(item => {
+      listItems = this.props.user.experience.map(item => (
         <li>
           <Experience
             companyName={item.companyName}
@@ -27,8 +27,8 @@ class ExperienceList extends Component {
             startDate={item.startDate}
             endDate={item.endDate}
           />
-        </li>;
-      });
+        </li>
+      ));
     }
     return (
       <ListStyle>
