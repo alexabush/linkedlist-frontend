@@ -2,8 +2,27 @@ import { SET_CURRENT_USER } from '../actionTypes';
 
 const DEFAULT_STATE = {
   isAuthenticated: false,
-  //make this into an fully fleshed out empty user object with all property
-  user: {}
+  user: {
+    firstName: '',
+    email: '',
+    lastName: '',
+    skills: [],
+    photo: '',
+    experience: [
+      {
+        jobTitle: '',
+        companyName: '',
+        company: '',
+        startDate: '',
+        endDate: ''
+      }
+    ],
+    education: {
+      institution: '',
+      degree: '',
+      endDate: ''
+    }
+  }
 };
 
 export default (state = DEFAULT_STATE, action) => {
