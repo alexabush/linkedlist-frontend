@@ -22,7 +22,7 @@ class UserProfile extends Component {
     // debugger;
     // const userData = await apiCall('GET', 'localhost:8081/users/mrIrons', {});
     // debugger;
-    const userData = await axios.get('http://localhost:8081/users/mrIrons');
+    const userData = await axios.get('http://localhost:8081/users/joel');
     console.log(userData);
     debugger;
     this.props.dispatch(setCurrentUser(userData.data.data));
