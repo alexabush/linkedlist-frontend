@@ -46,6 +46,10 @@ class Navbar extends Component {
             </li>
           </ul>
         )}
+        <div>
+          <img src="" alt="" />
+          <p>{this.props.user.firstName}</p>
+        </div>
       </NavBarStyle>
     );
   }

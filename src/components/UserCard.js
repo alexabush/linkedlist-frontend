@@ -16,7 +16,7 @@ class UserCard extends Component {
   state = {};
   render() {
     console.log('in UserCard');
-    console.log('current user data: ', this.props.user);
+    console.log('current user data: ', this.props);
     debugger;
     return (
       <UserCardStyle>
@@ -27,7 +27,9 @@ class UserCard extends Component {
           <div>Connect</div>
         </div>
         <div>
-          <h1>User Name {this.props.user.firstName}</h1>
+          <h1>
+            {this.props.user.firstName} {this.props.user.lastName}
+          </h1>
           <div>
             <div>Current Job Title</div>
             <div>Current Job</div>
