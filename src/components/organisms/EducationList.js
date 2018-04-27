@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 const ListStyle = styled.div`
   width: 90%;
-  background-color: lightpink;
+  background-color: white;
+  // background-color: lightpink;
   margin: 50px auto;
   display: flex;
   flex-direction: column;

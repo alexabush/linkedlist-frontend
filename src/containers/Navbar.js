@@ -3,10 +3,14 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../store/actions/auth';
+import SearchBar from '../components/molecules/SearchBar';
+import UserThumbnail from '../components/molecules/UserThumbnail';
 import styled from 'styled-components';
 
 const NavBarStyle = styled.nav`
-  border: 1px solid blue;
+  // border: 10px solid blue;
+  background-color: rgb(29, 49, 58);
+  height: 50px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -27,29 +31,11 @@ class Navbar extends Component {
   render() {
     return (
       <NavBarStyle>
-        <div>Search Bar</div>
-        {this.props.currentUser.isAuthenticated ? (
-          <ul>
-            <li>
-              <a href="/logout" onClick={this.logout}>
-                Log out
-              </a>
-            </li>
-          </ul>
-        ) : (
-          <ul>
-            <li>
-              <Link to="/signup">Sign up</Link>
-            </li>
-            <li>
-              <Link to="/signin">Log in</Link>
-            </li>
-          </ul>
-        )}
-        <div>
-          <img src="" alt="" />
-          <p>{this.props.user.firstName}</p>
-        </div>
+        <SearchBar />
+        <UserThumbnail
+          logout={this.logout}
+          currentUser={this.props.currentUser}
+        />
       </NavBarStyle>
     );
   }

@@ -15,20 +15,17 @@ const UserProfileStyle = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: rgb(236, 239, 241);
   // justify-content: space-around;
 `;
 
 class UserProfile extends Component {
   async componentDidMount() {
     console.log('in componentDidMount');
-    debugger;
-    // const userData = await apiCall('GET', 'localhost:8081/users/mrIrons', {});
     const userData = await axios.get(
       `http://localhost:8081/users/${this.props.user.username}`
     );
-    debugger;
     this.props.dispatch(setCurrentUser(userData.data.data));
-    debugger;
   }
 
   render() {
@@ -50,10 +47,10 @@ class UserProfile extends Component {
           isAuthenticated={this.props.isAuthenticated}
           user={this.props.user}
         />
-        <EducationList
+        {/* <EducationList
           isAuthenticated={this.props.isAuthenticated}
           user={this.props.user}
-        />
+        /> */}
         <SkillsList
           isAuthenticated={this.props.isAuthenticated}
           user={this.props.user}

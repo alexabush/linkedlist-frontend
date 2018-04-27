@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const RoundedDiv = styled.div`
   border-radius: 5px;
   background-color: lightgray;
+  padding: 5px;
 `;
 
 class Skill extends Component {

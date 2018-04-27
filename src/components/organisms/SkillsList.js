@@ -1,5 +1,20 @@
 import React, { Component } from 'react';
 import Skill from '../atoms/Skill';
+import styled from 'styled-components';
+
+const ListStyle = styled.ul`
+  width: 90%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+`;
+
+const StyledUl = styled.ul`
+  // width: 90%;
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+`;
 
 class SkillsList extends Component {
   state = {};
@@ -13,7 +28,15 @@ class SkillsList extends Component {
         </li>
       ));
     }
-    return skillLis ? <ul>{skillLis}</ul> : <ul>Loading...</ul>;
+    return (
+      <ListStyle>
+        <StyledUl>{skillLis}</StyledUl>
+      </ListStyle>
+      // {skillLis ? (
+      //   ) : (
+      //     <ul>Loading...</ul>
+      //   )}
+    );
   }
 }
 
