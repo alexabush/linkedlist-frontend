@@ -48,12 +48,12 @@ class UserProfile extends Component {
         <ExperienceList
           isAuthenticated={this.props.isAuthenticated}
           user={this.props.user}
-          experience={this.props.user.experience}
+          // experience={this.props.user.experience}
         />
         <EducationList
           isAuthenticated={this.props.isAuthenticated}
           user={this.props.user}
-          education={this.props.user.education}
+          // education={this.props.user.education}
         />
       </UserProfileStyle>
     );

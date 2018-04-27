@@ -13,18 +13,18 @@ const ListStyle = styled.div`
 class ExperienceList extends Component {
   state = {};
   render() {
-    //we need to pass in the array of jobs
+    debugger;
     let listItems;
-    if (this.props.experience) {
-      listItems = this.props.experience.map(item => {
-        <li>This is a component</li>;
+    if (this.props.user.experience) {
+      listItems = this.props.user.experience.map(item => {
+        <li>{item}</li>;
       });
     }
     return (
       <ListStyle>
         <div>
           <img src="" alt="" />
-          <h2>{this.props.experience}</h2>
+          <h2>{this.props.user.experience}</h2>
         </div>
         <button>Edit</button>
         <ul>{listItems}</ul>
