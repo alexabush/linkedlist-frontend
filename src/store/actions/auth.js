@@ -25,7 +25,7 @@ export function authUser(type, data) {
       /* This lets us just do all this once*/
       // debugger;
       // once we have logged in, set a token in localStorage
-      console.log('about to set jawt in local storate');
+      console.log('about to set jawt in local storage');
       localStorage.setItem('jwtToken', authData.data.token);
       // set a header of Authorization
       // debugger;
