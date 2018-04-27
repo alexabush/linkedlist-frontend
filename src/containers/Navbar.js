@@ -10,7 +10,7 @@ import styled from 'styled-components';
 const NavBarStyle = styled.nav`
   // border: 10px solid blue;
   background-color: rgb(29, 49, 58);
-  height: 50px;
+  height: 60px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -33,7 +33,7 @@ class Navbar extends Component {
       <NavBarStyle>
         <SearchBar />
         <UserThumbnail
-          logout={this.logoutUser}
+          logoutUser={this.logoutUser}
           currentUser={this.props.currentUser}
         />
       </NavBarStyle>
