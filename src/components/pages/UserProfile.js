@@ -22,11 +22,9 @@ class UserProfile extends Component {
     console.log('in componentDidMount');
     // debugger;
     // const userData = await apiCall('GET', 'localhost:8081/users/mrIrons', {});
-    // debugger;
     const userData = await axios.get(
       `http://localhost:8081/users/${this.props.user.username}`
     );
-    console.log(userData);
     // debugger;
     this.props.dispatch(setCurrentUser(userData.data.data));
     // debugger;
@@ -50,12 +48,12 @@ class UserProfile extends Component {
         <ExperienceList
           isAuthenticated={this.props.isAuthenticated}
           user={this.props.user}
-          experience={this.props.user.experienceList}
+          experience={this.props.user.experience}
         />
         <EducationList
           isAuthenticated={this.props.isAuthenticated}
           user={this.props.user}
-          education={this.props.user.educationList}
+          education={this.props.user.education}
         />
       </UserProfileStyle>
     );

@@ -24,9 +24,7 @@ class ExperienceList extends Component {
       <ListStyle>
         <div>
           <img src="" alt="" />
-          <h2>
-            {this.props.listType && this.props.listType}This is the list type
-          </h2>
+          <h2>{this.props.experience}</h2>
         </div>
         <button>Edit</button>
         <ul>{listItems}</ul>
