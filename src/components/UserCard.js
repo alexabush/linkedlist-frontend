@@ -27,7 +27,7 @@ class UserCard extends Component {
           <div>Connect</div>
         </div>
         <div>
-          {/* <h1>User Name {this.props.user.data.firstName}</h1> */}
+          <h1>User Name {this.props.user.firstName}</h1>
           <div>
             <div>Current Job Title</div>
             <div>Current Job</div>
