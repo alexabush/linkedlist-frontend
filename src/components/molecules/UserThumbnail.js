@@ -12,10 +12,7 @@ const UserThumbnailStyle = styled.div`
   color: white
 `;
 
-const LinkStyle = styled.li`
-  text-decoration: none; /* no underline */
-  color: white;
-`;
+const LinkStyle = styled.li``;
 
 // const LogoutButton = () => (
 //   <a href=""></a>
@@ -29,9 +26,20 @@ class UserThumbnail extends Component {
         <img src="" alt="ProfilePic" />
         <p>{this.props.currentUser.user.username}</p>
         {this.props.currentUser.isAuthenticated ? (
-          <ul>
+          <ul
+            style={{
+              listStyleType: 'none'
+            }}
+          >
             <li>
-              <a href="/logout" onClick={this.props.logoutUser}>
+              <a
+                href="/logout"
+                onClick={this.props.logoutUser}
+                style={{
+                  textDecoration: 'none' /* no underline */,
+                  color: 'white'
+                }}
+              >
                 Log out
               </a>
             </li>

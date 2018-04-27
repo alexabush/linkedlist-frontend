@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Skill from '../atoms/Skill';
+import Skill from '../molecules/Skill';
 import styled from 'styled-components';
 
 const ListStyle = styled.ul`

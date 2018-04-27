@@ -11,7 +11,7 @@ import { setCurrentUser } from '../../store/actions/auth';
 import { apiCall } from '../../services/api';
 
 const UserProfileStyle = styled.div`
-  border: 1px solid blue;
+  // border: 1px solid blue;
   display: flex;
   flex-direction: column;
   align-items: center;

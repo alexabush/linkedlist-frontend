@@ -46,11 +46,11 @@ const ImageStyle = styled.div`
 `;
 
 const UserPhoto = ({ user }) => (
+  //continue to work on object-fit
   <ImageStyle>
     <img
       style={{
         objectFit: 'contain',
-        // border: '10px solid green',
         maxHeight: '100px'
       }}
       src={user.photo}
@@ -68,7 +68,6 @@ class UserCard extends Component {
     return (
       <UserCardStyle>
         <MessageButton />
-        {/* <ConnectButton /> */}
         <div>
           <UserPhoto user={this.props.user} />
           <h1>
