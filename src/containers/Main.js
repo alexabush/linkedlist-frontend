@@ -9,6 +9,7 @@ import Homepage from '../components/Homepage';
 import withAuth from '../hocs/withAuth';
 import ListWrapper from '../components/ListWrapper';
 import UserProfile from '../components/pages/UserProfile';
+import UserJobsFeed from '../components/pages/UserJobsFeed';
 
 import FormWrapper from '../components/FormWrapper';
 
@@ -91,6 +92,22 @@ const Main = props => {
 
             // return <Homepage {...props} currentUser={currentUser} />;
           }}
+        />
+        <Route
+          exact
+          path="/jobs"
+          render={props => {
+            console.log('in /jobs route');
+            return <UserJobsFeed />;
+          }}
+          //do i need auth for this route?
+          // if (!currentUser.isAuthenticated) {
+          //   return <Redirect to="/signin" />;
+          // } else {
+          // return <UserJobsFeed />;
+          // return <ListWrapper />;
+          // return <h1>You're logged in! Cool.</h1>;
+          // }}
         />
       </Switch>
     </div>
