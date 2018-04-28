@@ -15,7 +15,6 @@ class AuthForm extends Component {
   }
 
   handleSubmit = e => {
-    // debugger;
     // console.log(this.state);
     console.log('entering handle submit');
     e.preventDefault();
@@ -38,7 +37,6 @@ class AuthForm extends Component {
   };
 
   render() {
-    // debugger;
     console.log('in auth form render');
     const { email, username, password, firstName, lastName } = this.state;
     const {

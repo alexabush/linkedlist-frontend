@@ -20,9 +20,6 @@ class SkillsList extends Component {
   state = {};
   render() {
     console.log('in SkillsList');
-    // let skillLis;
-    // if (this.props.user.skills) {
-    // debugger;
     const skillLis = this.props.user.skills.map(skill => (
       <li>
         <Skill name={skill} />
