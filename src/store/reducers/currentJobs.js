@@ -9,6 +9,8 @@ export default (state = DEFAULT_STATE, action) => {
   // debugger;
   switch (action.type) {
     case SET_CURRENT_JOBS:
+      //what do we actually want to map over here?
+      //current the job object on the current state or the incoming job object?
       var updatedJobs = [...state.jobs].map(
         job =>
           (job.company.handle = action.company.handle
@@ -28,6 +30,7 @@ export default (state = DEFAULT_STATE, action) => {
               })
       );
       return { jobs: updatedJobs };
+    // return { jobs: [...state.jobs, ...action.jobs] };
     default:
       return state;
   }
