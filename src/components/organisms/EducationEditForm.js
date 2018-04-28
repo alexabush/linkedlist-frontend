@@ -23,7 +23,7 @@ class EducationEditForm extends Component {
   handleSubmit(e) {
     console.log('in EducationEditForm handleSubmit');
     e.preventDefault();
-    this.props.updateUserData({ ...this.state });
+    this.props.updateUserEducation({ ...this.state });
     e.target.reset();
   }
 

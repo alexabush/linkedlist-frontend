@@ -10,7 +10,7 @@ const ListStyle = styled.div`
   margin: 50px auto;
   display: flex;
   flex-direction: column;
-  align-items: center;g
+  align-items: center;
 `;
 
 class ExperienceList extends Component {
@@ -40,7 +40,7 @@ class ExperienceList extends Component {
             jobTitle={item.jobTitle}
             startDate={item.startDate}
             endDate={item.endDate}
-            updateUserData={this.props.updateUserData}
+            updateUserExperience={this.props.updateUserExperience}
           />
         </li>
       ));

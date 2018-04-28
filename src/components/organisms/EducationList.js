@@ -36,7 +36,7 @@ class EducationList extends Component {
             degree={item.degree}
             institution={item.institution}
             endDate={item.endDate}
-            updateUserData={this.props.updateUserData}
+            updateUserEducation={this.props.updateUserEducation}
           />
         </li>
       ));

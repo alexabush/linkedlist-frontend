@@ -25,7 +25,7 @@ class ExperienceEditForm extends Component {
   handleSubmit(e) {
     console.log('in ExperienceEditForm handleSubmit');
     e.preventDefault();
-    this.props.updateUserData({ ...this.state });
+    this.props.updateUserExperience({ ...this.state });
     e.target.reset();
   }
 

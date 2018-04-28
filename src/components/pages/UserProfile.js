@@ -56,7 +56,7 @@ class UserProfile extends Component {
   };
 
   updateUserExperience = async userData => {
-    console.log('in updateUserData');
+    console.log('in updateUserExperience');
     //we need to replicate the entire array
     const updatedData = await apiCall(
       'patch',
@@ -67,7 +67,7 @@ class UserProfile extends Component {
   };
 
   updateUserEducation = async userData => {
-    console.log('in updateUserData');
+    console.log('in updateUserEducation');
     //we need to replicate the entire array
     const updatedData = await apiCall(
       'patch',
@@ -96,14 +96,14 @@ class UserProfile extends Component {
           user={this.props.user}
           isEditExperience={this.state.isEditExperience}
           toggleEditExperience={this.toggleEditExperience}
-          updateUserExperience={this.updateUserData}
+          updateUserExperience={this.updateUserExperience}
         />
         <EducationList
           isAuthenticated={this.props.isAuthenticated}
           user={this.props.user}
           isEditEducation={this.state.isEditEducation}
           toggleEditEducation={this.toggleEditEducation}
-          updateUserEducation={this.updateUserData}
+          updateUserEducation={this.updateUserEducation}
         />
         <SkillsList
           isAuthenticated={this.props.isAuthenticated}
