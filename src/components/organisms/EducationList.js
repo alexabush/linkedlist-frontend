@@ -48,7 +48,7 @@ class EducationList extends Component {
           <h2>Education</h2>
         </div>
         <button onClick={this.props.toggleEditEducation}>Edit</button>
-        <ul>{listItems}</ul>
+        <ul style={{ listStyleType: 'none' }}>{listItems}</ul>
       </ListStyle>
     );
   }
