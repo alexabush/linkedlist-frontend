@@ -38,7 +38,7 @@ class UserProfile extends Component {
 
   toggleEditExperience = () => {
     console.log('in toggleEditExperience');
-    // debugger;
+    debugger;
     this.setState(prevState => {
       let copyState = { ...prevState };
       let newEditState = !copyState.isEditExperience;
@@ -64,6 +64,7 @@ class UserProfile extends Component {
       { data: { experience: [userData] } }
     );
     this.props.dispatch(setCurrentUser(updatedData.data));
+    this.toggleEditExperience();
   };
 
   updateUserEducation = async userData => {
@@ -75,6 +76,7 @@ class UserProfile extends Component {
       { data: { education: [userData] } }
     );
     this.props.dispatch(setCurrentUser(updatedData.data));
+    this.toggleEditEducation();
   };
 
   render() {

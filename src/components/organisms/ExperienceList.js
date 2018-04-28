@@ -16,11 +16,9 @@ const ListStyle = styled.div`
 class ExperienceList extends Component {
   state = {};
   render() {
-    // debugger;
     console.log('in experience list', this.props.user.experience);
     let listItems;
     // if (this.props.user.experience) {
-    // debugger;
     if (!this.props.isEditExperience) {
       listItems = this.props.user.experience.map(item => (
         <li>
