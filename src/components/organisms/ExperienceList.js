@@ -21,7 +21,7 @@ class ExperienceList extends Component {
     let listItems;
     // if (this.props.user.experience) {
     // debugger;
-    if (this.props.isEdit) {
+    if (!this.props.isEditExperience) {
       listItems = this.props.user.experience.map(item => (
         <li>
           <Experience
@@ -47,7 +47,7 @@ class ExperienceList extends Component {
     }
     return (
       <ListStyle>
-        <button onClick={this.props.toggleEdit}>Edit</button>
+        <button onClick={this.props.toggleEditExperience}>Edit</button>
         <h2>Experience</h2>
         <ul style={{ listStyleType: 'none' }}>{listItems}</ul>
       </ListStyle>

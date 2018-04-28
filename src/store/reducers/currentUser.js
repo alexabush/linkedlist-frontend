@@ -17,11 +17,13 @@ const DEFAULT_STATE = {
         endDate: ''
       }
     ],
-    education: {
-      institution: '',
-      degree: '',
-      endDate: ''
-    }
+    education: [
+      {
+        institution: '',
+        degree: '',
+        endDate: ''
+      }
+    ]
   }
 };
 

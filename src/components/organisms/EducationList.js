@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Education from '../molecules/Education';
+import EducationEditForm from '../organisms/EducationEditForm';
 
 const ListStyle = styled.div`
   width: 90%;
@@ -14,15 +16,30 @@ const ListStyle = styled.div`
 class EducationList extends Component {
   state = {};
   render() {
+    console.log('in experience list', this.props.user.experience);
     //we need to pass in the array of jobs
     let listItems;
-    if (this.props.listItems) {
-      listItems = this.props.listItems.map(item => {
+    if (!this.props.isEditEducation) {
+      listItems = this.props.user.education.map(item => (
         <li>
-          {this.props.component && this.props.component}
-          This is a component
-        </li>;
-      });
+          <Education
+            degree={item.degree}
+            institution={item.institution}
+            endDate={item.endDate}
+          />
+        </li>
+      ));
+    } else {
+      listItems = this.props.user.education.map(item => (
+        <li>
+          <EducationEditForm
+            degree={item.degree}
+            institution={item.institution}
+            endDate={item.endDate}
+            updateUserData={this.props.updateUserData}
+          />
+        </li>
+      ));
     }
     return (
       <ListStyle>
@@ -30,7 +47,7 @@ class EducationList extends Component {
           <img src="" alt="" />
           <h2>Education</h2>
         </div>
-        <button>Edit</button>
+        <button onClick={this.props.toggleEditEducation}>Edit</button>
         <ul>{listItems}</ul>
       </ListStyle>
     );

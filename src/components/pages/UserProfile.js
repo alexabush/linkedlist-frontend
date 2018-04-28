@@ -23,7 +23,8 @@ class UserProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isEdit: false
+      isEditExperience: false,
+      isEditEducation: false
     };
   }
 
@@ -35,26 +36,44 @@ class UserProfile extends Component {
     this.props.dispatch(setCurrentUser(userData.data.data));
   }
 
-  toggleEdit = () => {
-    console.log('in toggleEdit');
+  toggleEditExperience = () => {
+    console.log('in toggleEditExperience');
+    // debugger;
     this.setState(prevState => {
       let copyState = { ...prevState };
-      let newEditState = !copyState.isEdit;
-      return { ...copyState, isEdit: newEditState };
+      let newEditState = !copyState.isEditExperience;
+      return { ...copyState, isEditExperience: newEditState };
     });
   };
 
-  updateUserData = async userData => {
+  toggleEditEducation = () => {
+    console.log('in toggleEditEducation');
+    this.setState(prevState => {
+      let copyState = { ...prevState };
+      let newEditState = !copyState.isEditEducation;
+      return { ...copyState, isEditEducation: newEditState };
+    });
+  };
+
+  updateUserExperience = async userData => {
     console.log('in updateUserData');
-    console.log('userData', userData);
     //we need to replicate the entire array
     const updatedData = await apiCall(
       'patch',
       `http://localhost:8081/users/${this.props.user.username}`,
       { data: { experience: [userData] } }
     );
-    //we should dispatch from here
-    console.log('updatedData', updatedData);
+    this.props.dispatch(setCurrentUser(updatedData.data));
+  };
+
+  updateUserEducation = async userData => {
+    console.log('in updateUserData');
+    //we need to replicate the entire array
+    const updatedData = await apiCall(
+      'patch',
+      `http://localhost:8081/users/${this.props.user.username}`,
+      { data: { education: [userData] } }
+    );
     this.props.dispatch(setCurrentUser(updatedData.data));
   };
 
@@ -75,14 +94,17 @@ class UserProfile extends Component {
         <ExperienceList
           isAuthenticated={this.props.isAuthenticated}
           user={this.props.user}
-          isEdit={this.state.isEdit}
-          toggleEdit={this.toggleEdit}
-          updateUserData={this.updateUserData}
+          isEditExperience={this.state.isEditExperience}
+          toggleEditExperience={this.toggleEditExperience}
+          updateUserExperience={this.updateUserData}
         />
-        {/* <EducationList
+        <EducationList
           isAuthenticated={this.props.isAuthenticated}
           user={this.props.user}
-        /> */}
+          isEditEducation={this.state.isEditEducation}
+          toggleEditEducation={this.toggleEditEducation}
+          updateUserEducation={this.updateUserData}
+        />
         <SkillsList
           isAuthenticated={this.props.isAuthenticated}
           user={this.props.user}

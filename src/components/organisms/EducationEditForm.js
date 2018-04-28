@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 
-class ExperienceEditForm extends Component {
+class EducationEditForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      companyName: '',
-      jobTitle: '',
-      startDate: '',
+      degree: '',
+      institution: '',
       endDate: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -15,15 +14,14 @@ class ExperienceEditForm extends Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     return {
-      companyName: nextProps.companyName,
-      jobTitle: nextProps.jobTitle,
-      startDate: nextProps.startDate,
+      degree: nextProps.degree,
+      institution: nextProps.institution,
       endDate: nextProps.endDate
     };
   }
 
   handleSubmit(e) {
-    console.log('in ExperienceEditForm handleSubmit');
+    console.log('in EducationEditForm handleSubmit');
     e.preventDefault();
     this.props.updateUserData({ ...this.state });
     e.target.reset();
@@ -36,35 +34,26 @@ class ExperienceEditForm extends Component {
   }
 
   render() {
-    console.log('in ExperienceEditForm');
+    console.log('in EducationEditForm');
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
           <div className>
-            <label htmlFor="companyName">companyName: </label>
+            <label htmlFor="degree">Degree: </label>
             <input
-              id="companyName"
-              name="companyName"
+              id="degree"
+              name="degree"
               onChange={this.handleChange}
-              value={this.state.companyName}
+              value={this.state.degree}
             />
           </div>
           <div>
-            <label htmlFor="jobTitle">Description: </label>
+            <label htmlFor="institution">Institution: </label>
             <input
-              id="jobTitle"
-              name="jobTitle"
+              id="institution"
+              name="institution"
               onChange={this.handleChange}
-              value={this.state.jobTitle}
-            />
-          </div>
-          <div>
-            <label htmlFor="startDate">Start Date: </label>
-            <input
-              id="startDate"
-              name="startDate"
-              onChange={this.handleChange}
-              value={this.state.startDate}
+              value={this.state.institution}
             />
           </div>
           <div>
@@ -83,10 +72,10 @@ class ExperienceEditForm extends Component {
   }
 }
 
-ExperienceEditForm.PropTypes = {
-  // companyName: PropTypes.string.isRequired,
-  // jobTitle: PropTypes.string.isRequired,
+EducationEditForm.PropTypes = {
+  // degree: PropTypes.string.isRequired,
+  // institution: PropTypes.string.isRequired,
   // submitData: PropTypes.func.isRequired
 };
 
-export default ExperienceEditForm;
+export default EducationEditForm;
