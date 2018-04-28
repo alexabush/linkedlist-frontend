@@ -27,7 +27,7 @@ export default (state = DEFAULT_STATE, action) => {
                 job
               })
       );
-      return updatedJobs;
+      return { jobs: updatedJobs };
     default:
       return state;
   }

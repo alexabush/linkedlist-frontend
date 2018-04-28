@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import Navbar from '../../containers/Navbar';
 import JobsList from '../organisms/JobsList';
 import { setCurrentJob } from '../../store/actions/jobActionHandlers';
@@ -12,14 +13,14 @@ class UserJobsFeed extends Component {
     };
   }
 
-  // async componentDidMount() {
-  //   console.log('in componentDidMount');
-  //   const jobsData = await axios.get(`http://localhost:8081/jobs`);
-  //   console.log('jobsData', jobsData);
-  //   debugger;
-  //   // this.props.dispatch(jobsData.data.data);
-  //   //i'll need to dispatch too
-  // }
+  async componentDidMount() {
+    console.log('in componentDidMount');
+    const jobsData = await axios.get(`http://localhost:8081/jobs`);
+    console.log('jobsData', jobsData.data.data);
+    // debugger;
+    this.props.dispatch(setCurrentJob(jobsData.data.data));
+    //i'll need to dispatch too
+  }
 
   render() {
     return (
@@ -32,4 +33,11 @@ class UserJobsFeed extends Component {
   }
 }
 
-export default UserJobsFeed;
+function mapStateToProps(reduxState) {
+  console.log('in UserJobsFeed mapStateToProps');
+  return {
+    jobs: reduxState.jobs
+  };
+}
+
+export default connect(mapStateToProps)(UserJobsFeed);

@@ -38,7 +38,6 @@ class UserProfile extends Component {
 
   toggleEditExperience = () => {
     console.log('in toggleEditExperience');
-    debugger;
     this.setState(prevState => {
       let copyState = { ...prevState };
       let newEditState = !copyState.isEditExperience;
