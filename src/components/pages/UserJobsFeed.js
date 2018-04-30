@@ -3,7 +3,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import Navbar from '../../containers/Navbar';
 import JobsList from '../organisms/JobsList';
-import { setCurrentJob } from '../../store/actions/jobActionHandlers';
+import { setCurrentJobs } from '../../store/actions/jobActionHandlers';
 
 class UserJobsFeed extends Component {
   constructor(props) {
@@ -15,19 +15,29 @@ class UserJobsFeed extends Component {
 
   async componentDidMount() {
     console.log('in componentDidMount');
+    debugger;
     const jobsData = await axios.get(`http://localhost:8081/jobs`);
-    console.log('jobsData', jobsData.data.data);
-    // debugger;
-    this.props.dispatch(setCurrentJob(jobsData.data.data));
-    //i'll need to dispatch too
+    // console.log('jobsData', jobsData.data.data);
+    this.props.dispatch(setCurrentJobs(jobsData.data.data));
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    console.log('in getDerivedStateFromProps');
+    debugger;
+    return {
+      jobs: nextProps.jobs
+    };
   }
 
   render() {
+    console.log('in UserJobsFeed render');
+    console.log('this.props.jobs', this.props.jobs);
+    debugger;
     return (
       <div>
         <Navbar />
         <h1>Jobs Feed</h1>
-        <JobsList jobs={this.state.jobs} />
+        <JobsList jobs={this.props.jobs} />
       </div>
     );
   }
@@ -35,8 +45,10 @@ class UserJobsFeed extends Component {
 
 function mapStateToProps(reduxState) {
   console.log('in UserJobsFeed mapStateToProps');
+  console.log(reduxState.currentJobs);
+  debugger;
   return {
-    jobs: reduxState.jobs
+    jobs: reduxState.currentJobs
   };
 }
 

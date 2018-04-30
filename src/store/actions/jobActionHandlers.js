@@ -1,9 +1,9 @@
 import { SET_CURRENT_JOBS } from '../actionTypes';
 
-export function setCurrentJob(job) {
-  console.log('in setCurrentJob');
+export function setCurrentJobs(jobs) {
+  console.log('in setCurrentJobs');
   return {
     type: SET_CURRENT_JOBS,
-    job
+    jobs
   };
 }
